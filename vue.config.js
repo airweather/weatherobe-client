@@ -3,7 +3,7 @@ module.exports = defineConfig({
   transpileDependencies: true
 })
 
-const target = 'http://127.0.0.1:3000';
+const target = process.env.TARGET.ADDRESS;
 
 module.exports = {
   devServer: {
