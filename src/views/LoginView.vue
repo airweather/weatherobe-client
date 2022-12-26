@@ -15,7 +15,7 @@
           <router-link to="/signup" style="text-decoration:none;color:black"><small>회원가입</small></router-link>
         </div>
         <button class="w-100 btn btn-lg btn-dark mt-3" type="submit" @click="loginSubmit">로그인</button>
-        <button class="w-100 btn btn-lg"><img :src="kakaoLoginImg" alt="" @click="kakaoLogin"></button>
+        <button class="w-100 btn btn-lg mt-1" @click="kakaoLogin" style="padding:0"><img :src="kakaoLoginImg" style="width:376px; height:48px; border-radius: 10px;"></button>
         <p class="mt-5 mb-3 text-muted">&copy; 2017–2022</p>
       </form>
     </div>
@@ -29,7 +29,7 @@ export default {
       email: "",
       password: "",
       userData: {},
-      kakaoLoginImg: require('../assets/kakao_login_medium_wide.png')
+      kakaoLoginImg: require('../assets/kakao_login_large_wide.png')
     }
   },
   methods: {
@@ -54,7 +54,6 @@ export default {
         scope:'profile_nickname, account_email, gender',
         success: this.getProfile,
       });
-      this.$router.push('/',{})
     },
     getProfile(authObj) {
       console.log(authObj);
@@ -67,6 +66,7 @@ export default {
           alert("카카오 로그인 성공!");
         }
       });
+      this.$router.push('/',{})
     },
     async login(kakao_account) {
       const pass = Math.floor(Math.random()*1000000000).toString();

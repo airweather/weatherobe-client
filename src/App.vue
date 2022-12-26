@@ -5,7 +5,11 @@
     <div class="container text-center" >
       <div class="row align-items-center">
         <div class="col">
-          <h1 class="pt-3">WEATHEROBE</h1>
+          <h1 class="pt-3">
+            <router-link to="/" style="color:#000 ;text-decoration:none">
+              WEATHEROBE
+            </router-link>
+          </h1>
         </div>
       </div>
     </div>
@@ -116,4 +120,5 @@ p a {
   text-decoration:none;
   color:#000;
 }
+
 </style>
