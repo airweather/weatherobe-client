@@ -7,7 +7,7 @@ const target = process.env.VUE_APP_TARGET_ADDRESS;
 
 module.exports = {
   devServer: {
-    disableHostCheck: true,
+    allowedHosts: "all",
     port:8080,
     proxy: {
       '^/api': {
