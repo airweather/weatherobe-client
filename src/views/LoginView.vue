@@ -42,6 +42,7 @@ export default {
         alert(`로그인 성공 : 안녕하세요 ${loginData.name} 님`);
         //store의 user에 loginData 입력
         this.$store.commit("user", loginData);
+        console.log(loginData);
         this.$router.push('/');
       }
       else {
@@ -62,7 +63,6 @@ export default {
         url:'/v2/user/me',
         success: res => {
           const kakao_account = res.kakao_account;
-          console.log(kakao_account);
           this.login(kakao_account);
           alert("카카오 로그인 성공!");
         }
@@ -77,7 +77,8 @@ export default {
           {name:kakao_account.profile.nickname, password:pass}
          ]
       });
-      this.$store.commit("user", kakao_account);
+      const kakaoLoginInfo = {email: kakao_account.email, name:kakao_account.profile.nickname}
+      this.$store.commit("user", kakaoLoginInfo);
     },
   }
 }
