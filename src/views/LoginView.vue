@@ -49,7 +49,8 @@ export default {
          alert('로그인 실패 : ID와 비밀번호를 확인해주세요')
       }
     },
-    kakaoLogin() {
+    kakaoLogin(e) {
+      e.preventDefault();
       window.Kakao.Auth.login({
         scope:'profile_nickname, account_email, gender',
         success: this.getProfile,
