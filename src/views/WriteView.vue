@@ -24,7 +24,6 @@
             <img :src="`/download/${name}/${image}`">
           </div>
         </div>
-
         <div class="col-xl-1"></div>
         <div class="col-md-auto">
           <div class="card" style="width: 25rem; border:none">
@@ -53,28 +52,24 @@
                   <input type="text" class="form-control" v-model="top">
                 </div>
               </div>
-              
               <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">하의</label>
                 <div class="col-md-9">
                   <input type="text" class="form-control" v-model="bottom">
                 </div>
               </div>
-              
               <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">신발</label>
                 <div class="col-md-9">
                   <input type="text" class="form-control" v-model="shoes">
                 </div>
               </div>
-              
               <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">악세사리</label>
                 <div class="col-md-9">
                   <input type="text" class="form-control" v-model="acc">
                 </div>
               </div>
-
               <div class="mb-3 row">
                 <label class="col-sm-3 col-form-label">내용</label>
                 <div class="col-md-9">
@@ -84,7 +79,6 @@
             </div>
           </div>
         </div>
-        
         <div class="col-xl-1"></div>
       </div>
       <button class="btn btn-lg btn-dark mt-3" type="submit" @click="write" style="width: 100px;border-radius: 10px;">등록</button>
@@ -144,7 +138,6 @@ export default {
       }
       const { error } = await this.$api(`/upload/${this.name}/${fileName}`, { data });
       this.image = fileName;
-
       if (error) {
         return alert("이미지 업로드 실패했습니다. 다시 시도하세요.");
       }
@@ -168,16 +161,13 @@ export default {
       }
       alert("이미지가 업로드 되었습니다.");
     },
-
     deleteImage() {
       const confirmed = confirm('정말 삭제하시겠습니까?');
       if (confirmed) {
         this.$api(`/api/delete/${this.name}/${this.image}`);
         this.image = null;
       } 
-      
     },
-    
     async write(e) {
       e.preventDefault();
       if(!this.image) return alert('이미지는 반드시 등록해 주세요');
@@ -189,7 +179,7 @@ export default {
 }
 </script>
 
-<style >
+<style>
 .dropzone1 {
     width: 400px;
     height: 450px;

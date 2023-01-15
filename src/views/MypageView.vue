@@ -6,7 +6,6 @@
         <div class="text-start mt-3 mb-3">
           <h5>이메일  :  <b>{{email}}</b></h5>
         </div>
-       
         <div class="mt-2">
           <small><b>비밀번호</b></small>
         </div>
@@ -19,7 +18,6 @@
             <b>비밀번호는 영문자와 숫자가 1개 이상, 총 6자 이상이어햐 합니다.</b>
           </small>
         </div>
-        
         <div class="mt-2">
           <small><b>비밀번호 확인</b></small>
         </div>
@@ -30,7 +28,6 @@
         <small v-if="(passwordConfirm.length > 5 && password !== passwordConfirm)" style="color:red;">
           <b>비밀번호가 일치하지 않습니다.</b>
         </small>
-        
         <div class="mt-2">
           <small v-if="(!nameDuplicate)"><b>닉네임</b></small>
           <small v-else-if="(nameDuplicate)" style="color:red;"><b>중복된 닉네임입니다.</b></small>
@@ -39,7 +36,6 @@
           <input type="text" class="form-control" id="password" placeholder="Password" v-model="name" @keyup="nameCheck">
           <label for="floatingPassword">Nickname</label>
         </div>
-              
         <div class="mt-3">
           <button class="btn btn-lg btn-dark mr-3" type="submit" @click="update">정보변경</button>
           <button class="btn btn-lg btn-danger" type="submit" @click="withdrawal">회원탈퇴</button>
@@ -67,9 +63,6 @@ export default {
     this.email = this.$store.state.user.email; 
     this.name = this.$store.state.user.name; 
   },
-  mounted() {
-    
-  },
   methods: {
     async update(e) {
       e.preventDefault();
@@ -86,7 +79,6 @@ export default {
         }
       }
     },
-    
     async nameCheck() {
       const nameCheck = await this.$api("/api/nameCheck", {param:[this.name]});
       if(nameCheck) {
@@ -96,7 +88,6 @@ export default {
         this.nameDuplicate = false;
       }
     },
-
     async withdrawal() {
       const confirm = prompt(`정말 탈퇴하시겠습니까? \n My Wardrobe의 모든 데이터가 삭제됩니다. \n 원하시면 닉네임을 입력해주세요.`);
       if(confirm === this.$store.state.user.name) {

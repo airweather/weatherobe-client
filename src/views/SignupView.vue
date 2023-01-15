@@ -11,7 +11,6 @@
           <input type="email" class="form-control" id="id" placeholder="name@example.com" v-model="email" @keyup="emailCheck">
           <label for="floatingInput">Email address</label>
         </div>
-        
         <div class="mt-2">
           <small><b>비밀번호</b></small>
         </div>
@@ -24,7 +23,6 @@
             <b>비밀번호는 영문자와 숫자가 1개 이상, 총 6자 이상이어햐 합니다.</b>
           </small>
         </div>
-        
         <div class="mt-2">
           <small><b>비밀번호 확인</b></small>
         </div>
@@ -35,7 +33,6 @@
         <small v-if="(passwordConfirm.length > 5 && password !== passwordConfirm)" style="color:red;">
           <b>비밀번호가 일치하지 않습니다.</b>
         </small>
-        
         <div class="mt-2">
           <small v-if="(!nameDuplicate)"><b>닉네임</b></small>
           <small v-else-if="(nameDuplicate)" style="color:red;"><b>중복된 닉네임입니다.</b></small>
@@ -44,7 +41,6 @@
           <input type="text" class="form-control" id="password" placeholder="Password" v-model="name" @keyup="nameCheck">
           <label for="floatingPassword">Nickname</label>
         </div>
-              
         <button class="w-100 btn btn-lg btn-dark mt-3" type="submit" @click="signup">회원가입</button>
       </form>
     </div>
@@ -109,6 +105,5 @@ export default {
       }
     },
   }
-
 }
 </script>

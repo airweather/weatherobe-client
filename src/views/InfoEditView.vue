@@ -18,14 +18,12 @@
                 <label for="dropzoneFile" style="width: 100px;border-radius: 10px; cursor: pointer;">Push</label>
                 <input type="file" id="dropzoneFile" class="dropzoneFile" @change="uploadFile($event.target.files)">
               </div>
-              
             </div>
             <div v-if="image" class="card img fluid" style="width: 25rem; border:none; opacity: 0.5;">
               <div class="position-absolute top-0 end-0" style="cursor:pointer;" @click="deleteImage()"><h1>X</h1></div>
               <img :src="`/download/${name}/${image}`">
             </div>
           </div>
-  
           <div class="col-xl-1"></div>
           <div class="col-md-auto">
             <div class="card" style="width: 25rem; border:none">
@@ -54,28 +52,24 @@
                     <input type="text" class="form-control" v-model="top">
                   </div>
                 </div>
-                
                 <div class="mb-3 row">
                   <label class="col-sm-3 col-form-label">하의</label>
                   <div class="col-md-9">
                     <input type="text" class="form-control" v-model="bottom">
                   </div>
                 </div>
-                
                 <div class="mb-3 row">
                   <label class="col-sm-3 col-form-label">신발</label>
                   <div class="col-md-9">
                     <input type="text" class="form-control" v-model="shoes">
                   </div>
                 </div>
-                
                 <div class="mb-3 row">
                   <label class="col-sm-3 col-form-label">악세사리</label>
                   <div class="col-md-9">
                     <input type="text" class="form-control" v-model="acc">
                   </div>
                 </div>
-  
                 <div class="mb-3 row">
                   <label class="col-sm-3 col-form-label">내용</label>
                   <div class="col-md-9">
@@ -85,7 +79,6 @@
               </div>
             </div>
           </div>
-          
           <div class="col-xl-1"></div>
         </div>
         <button class="btn btn-lg btn-dark mt-3" type="submit" @click="edit" style="width: 300px;border-radius: 10px;">수정완료</button>
@@ -118,7 +111,6 @@
     created() {
       this.dailyLookId = this.$route.query.id;
       this.getDailyLookInfo();
-
       this.email = this.$store.state.user.email;
       if(this.$store.state.user.name) {
         this.name = this.$store.state.user.name}
@@ -144,7 +136,6 @@
         this.acc = dailyLookInfo[0].acc;
         this.memo = dailyLookInfo[0].memo;
         this.image = dailyLookInfo[0].image;
-        
         },
       toggleActive () {
         if(this.active) {
@@ -154,9 +145,7 @@
           this.active = true;
         }
       },
-  
       async dropUploadFile(e) {
-  
         if(this.active) {
           this.active = false;
         }
@@ -173,7 +162,6 @@
         }
         const { error } = await this.$api(`/upload/${this.name}/${fileName}`, { data });
         this.image = fileName;
-  
         if (error) {
           return alert("이미지 업로드 실패했습니다. 다시 시도하세요.");
         }
@@ -181,7 +169,6 @@
         setTimeout(() => {
         }, 1000);
       },
-  
       async uploadFile(files) {
         let fileName = "";
         let data = null;
@@ -200,7 +187,6 @@
         setTimeout(() => {
         }, 1000);
       },
-  
       deleteImage() {
         const confirmed = confirm('정말 삭제하시겠습니까?');
         if (confirmed) {
@@ -208,7 +194,6 @@
           this.image = null;
         } 
       },
-      
       async edit(e) {
         e.preventDefault();
         if(!this.image) return alert('이미지는 반드시 등록해 주세요');
