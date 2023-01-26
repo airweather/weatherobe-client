@@ -41,7 +41,7 @@
           <input type="text" class="form-control" id="password" placeholder="Password" v-model="name" @keyup="nameCheck">
           <label for="floatingPassword">Nickname</label>
         </div>
-        <button class="w-100 btn btn-lg btn-dark mt-3" type="submit" @click="signup">회원가입</button>
+        <button class="w-100 btn btn-lg btn-dark mt-3" type="submit" @click.prevent="signup">회원가입</button>
       </form>
     </div>
   </main>
@@ -63,12 +63,11 @@ export default {
       signupInfo: {}
     }
   },
-  created() {
+  mounted() {
     this.rule = new RegExp(this.passwordRule);
   },
   methods: {
-    async signup(e) {
-      e.preventDefault();
+    async signup() {
       this.signupInfo = {
         email: this.email,
         password: this.password,

@@ -37,7 +37,7 @@
           <label for="floatingPassword">Nickname</label>
         </div>
         <div class="mt-3">
-          <button class="btn btn-lg btn-dark mr-3" type="submit" @click="update">정보변경</button>
+          <button class="btn btn-lg btn-dark mr-3" type="submit" @click.prevent="update">정보변경</button>
           <button class="btn btn-lg btn-danger" type="submit" @click="withdrawal">회원탈퇴</button>
         </div>
       </form>
@@ -64,8 +64,7 @@ export default {
     this.name = this.$store.state.user.name; 
   },
   methods: {
-    async update(e) {
-      e.preventDefault();
+    async update() {
       let flag = !this.nameDuplicate && this.password.length > 5 && this.rule.test(this.password)  && this.password === this.passwordConfirm;
       if(!flag) {
         return alert('정보변경 실패 다시 확인해주세요')

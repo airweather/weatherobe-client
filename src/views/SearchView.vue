@@ -13,7 +13,7 @@
             <small v-if="(searchData.length <= 1 && searchData.length > 0)" style="color:red">검색어를 2자 이상 입력하세요</small>
           </div>
           <div>
-            <button type="submit" class="btn btn-dark mb-3" @click="search">Search</button>
+            <button type="submit" class="btn btn-dark mb-3" @click.prevent="search">Search</button>
           </div>
           <div>
           </div>
@@ -34,8 +34,7 @@ export default {
   },
   
   methods: {
-    async search(e) {
-      e.preventDefault();
+    async search() {
       if(this.searchData.length < 2) return alert('검색어를 2자 이상 입력하세요')
       let search = await this.$api("/api/search", {param:['%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%']})
       this.searchResult = search;

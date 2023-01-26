@@ -88,6 +88,7 @@ export default {
         this.$store.commit("user", {});
       }
       alert('로그아웃');
+      this.$router.push('/');
     },
   }
 }

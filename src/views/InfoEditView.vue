@@ -81,7 +81,7 @@
           </div>
           <div class="col-xl-1"></div>
         </div>
-        <button class="btn btn-lg btn-dark mt-3" type="submit" @click="edit" style="width: 300px;border-radius: 10px;">수정완료</button>
+        <button class="btn btn-lg btn-dark mt-3" type="submit" @click.prevent="edit" style="width: 300px;border-radius: 10px;">수정완료</button>
       </div>
     </main>
   </template>
@@ -192,8 +192,7 @@
           this.image = null;
         } 
       },
-      async edit(e) {
-        e.preventDefault();
+      async edit() {
         if(!this.image) return alert('이미지는 반드시 등록해 주세요');
         await this.$api("/api/editInfo",{param:[this.date, this.weather, this.temperature, this.top, this.bottom, this.shoes, this.acc, this.memo, this.image, this.id]});
         alert('등록 완료.')
