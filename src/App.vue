@@ -27,7 +27,7 @@
               <router-link class="nav-link" id="daily-look" aria-current="page" to="/dailylook">DailyLook</router-link>
             </li>
             <li v-if="user.email!==undefined" class="nav-item">
-              <router-link class="nav-link" id="my-wardrobe" aria-current="page" to="wardrobe">MyWardrobe</router-link>
+              <router-link class="nav-link" id="my-wardrobe" aria-current="page" to="/wardrobe">MyWardrobe</router-link>
             </li>
           </ul>
           <form class="d-flex" role="search">

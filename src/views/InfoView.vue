@@ -18,7 +18,6 @@
         <div class="col-xl-2"></div>
       </div>
     </div>
-      
     <div class="container bg-white ">
       <div class="row g-3 mt-1">
         <div class="col-xl-2"></div>
@@ -84,7 +83,7 @@ export default {
         this.$api("/api/erase", {param:[this.dailyLookId]});
         alert('삭제 완료')
         this.$router.push("/");
-      } 
+      }
     },
     edit() {
       const confirmed = confirm('수정하시겠습니까?');

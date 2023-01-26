@@ -7,6 +7,7 @@ const store = createStore({
       user: {}
     }
   },
+  //mutation은 state의 값을 변경해줌
   mutations: {
     user(state, data) {
       state.user = data;
