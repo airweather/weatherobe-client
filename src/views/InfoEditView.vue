@@ -166,8 +166,6 @@
           return alert("이미지 업로드 실패했습니다. 다시 시도하세요.");
         }
         alert("이미지가 업로드 되었습니다.");
-        setTimeout(() => {
-        }, 1000);
       },
       async uploadFile(files) {
         let fileName = "";
