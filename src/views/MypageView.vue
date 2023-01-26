@@ -60,8 +60,8 @@ export default {
   },
   created() {
     this.rule = new RegExp(this.passwordRule);
-    this.email = this.$store.state.user.email; 
-    this.name = this.$store.state.user.name; 
+    this.email = this.$store.state.user.email;
+    this.name = this.$store.state.user.name;
   },
   methods: {
     async update() {

@@ -68,7 +68,6 @@ export default {
       searchImg: require('./assets/search2.png'),
       mypageImg: require('./assets/mypage.png'),
       writeImg: require('./assets/write.png'),
-      location : "",
     }
   },
   computed: {
@@ -111,10 +110,6 @@ nav {
 nav a {
   font-weight: bold;
   color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
 }
 
 p a {

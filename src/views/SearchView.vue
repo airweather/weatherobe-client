@@ -36,7 +36,7 @@ export default {
   methods: {
     async search() {
       if(this.searchData.length < 2) return alert('검색어를 2자 이상 입력하세요')
-      let search = await this.$api("/api/search", {param:['%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%']})
+      const search = await this.$api("/api/search", {param:['%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%', '%'+this.searchData+'%']})
       this.searchResult = search;
       let data = []
       if(search.length < 2) {
