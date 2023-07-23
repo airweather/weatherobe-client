@@ -1,5 +1,10 @@
 <template>
   <main class="mt-5">
+    <div>
+      <h1>MonthlyCalendar</h1>
+      <MonthlyCalendar/>
+    </div>
+
     <div class="container bg-white">
       <div class="row g-3">
         <div class="col" :key="i" v-for="(look, i) in dailyLookList">
@@ -13,7 +18,15 @@
 </template>
 
 <script>
+import MonthlyCalendar from '@/components/Calendar/MonthlyCalendar.vue'
+
+
+
 export default {
+
+  components: {
+    MonthlyCalendar
+  },
   data() {
     return {
       dailyLookList : [],
