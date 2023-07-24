@@ -21,11 +21,22 @@
         </div>
   
         <div v-for="(item, i) in calendar" :key="i">
-          <div>
-            {{ item?.date.getDate()}}
-          </div>
-          <div>
-            {{ item?.weatherInfo  }}
+          <div v-if="item">
+
+            <div>
+              {{ item?.date.getDate()}}
+            </div>
+            <div class="weather-data">
+              <div>
+                {{ item?.weatherInfo  }}
+              </div>
+              <div>
+                <span> {{ item?.lowestTemp }}</span> / 
+                <span> {{ item?.highestTemp }}</span>
+              </div>
+  
+  
+            </div>
           </div>
   
         </div>
@@ -94,7 +105,7 @@ methods: {
 
         const dateObject = {
           date,
-          weatherInfo : "",
+          weatherInfo : "맑음",
           lowestTemp : 0,
           highestTemp : 0,
         }
