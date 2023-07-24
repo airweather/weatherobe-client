@@ -7,7 +7,6 @@
       <div class="calendar-header">
 
         <div class="calendar-header-button" @click="moveToPrevMonth">&lt;</div>
-        
         <div>
           {{ anchorDate.getFullYear() }}년 {{ anchorDate.getMonth() + 1 }}월
         </div>
@@ -64,7 +63,6 @@ export default {
 
 created() {
   this.makeCalendar();
-  this.hello();
 },
 data() {
   return {
@@ -118,9 +116,6 @@ methods: {
 
   },
 
-  hello() {
-    console.log(this.calendar);
-  }
 }
 }
 </script>
