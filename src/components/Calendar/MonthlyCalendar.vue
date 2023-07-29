@@ -1,7 +1,4 @@
 <template>
-  <div>
-    <h1>weather calendar</h1>
-    
     <div class="calendar-container">
 
       <div class="calendar-header">
@@ -39,7 +36,6 @@
           </div>
   
         </div>
-      </div>
 
       
 
@@ -122,6 +118,7 @@ methods: {
 
 <style>
 .calendar-container{
+  width: 1200px;
 }
 
 .calendar-body{
