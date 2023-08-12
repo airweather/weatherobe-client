@@ -1,18 +1,20 @@
 <template>
 <div>
-  <header style="border-bottom: 1px solid #ddd;">
-    <div style="background-color: #000; height:8px;"></div>
-    <div class="container text-center" >
+  <header class="weatherobe-header">
+    <div class="background-bar"></div>
+
+    <div class="container text-center">
       <div class="row align-items-center">
         <div class="col">
           <h1 class="pt-3">
-            <router-link to="/" style="color:#000 ;text-decoration:none">
+            <router-link to="/" class="weatherobe-logo">
               WEATHEROBE
             </router-link>
           </h1>
         </div>
       </div>
     </div>
+
     <nav class="navbar navbar-expand-lg">
       <div class="container">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +53,9 @@
       </div>
     </nav>
   </header>
+  
   <router-view/>
+
   <footer class="container mt-5">
     <p class="float-end"><a href="#" >WEATHEROBE</a></p>
     <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
@@ -103,6 +107,23 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
+.background-bar{
+  background-color: #000;
+  height:8px;
+  width: 100%;
+}
+
+.weatherobe-header{
+  border-bottom: 1px solid #ddd;
+}
+
+.weatherobe-logo,
+.weatherobe-logo:hover{
+  color:#000;
+  text-decoration:none;
+}
+
 
 nav {
   padding: 30px;
