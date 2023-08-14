@@ -1,67 +1,14 @@
 <template>
-<div>
-  <!-- <header class="weatherobe-header">
-    <div class="background-bar"></div>
-
-    <div class="container text-center">
-      <div class="row align-items-center">
-        <div class="col">
-          <h1 class="pt-3">
-            <router-link to="/" class="weatherobe-logo">
-              WEATHEROBE
-            </router-link>
-          </h1>
-        </div>
-      </div>
-    </div>
-
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarScroll">
-          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-            <li class="nav-item">
-              <router-link class="nav-link" id="daily-look" aria-current="page" to="/">Home</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" id="daily-look" aria-current="page" to="/dailylook">DailyLook</router-link>
-            </li>
-            <li v-if="user.email!==undefined" class="nav-item">
-              <router-link class="nav-link" id="my-wardrobe" aria-current="page" to="/wardrobe">MyWardrobe</router-link>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <router-link v-if="(user.email!==undefined)" class="navbar-brand" to="/write">
-              <img :src="writeImg" alt="" width="24" height="24">
-            </router-link>
-            <router-link v-if="(user.email!==undefined && user.sso ===1)" class="navbar-brand" to="/mypage">
-              <img :src="mypageImg" alt="" width="24" height="24">
-            </router-link>
-            <router-link class="navbar-brand" to="/search">
-              <img :src="searchImg" alt="" width="20" height="20">
-            </router-link>
-            <router-link v-if="user.email===undefined" class="navbar-brand" to="/login">
-                <img :src="loginImg" alt="" width="20" height="20"> <small>login</small>
-            </router-link>
-            <a v-if="user.email!==undefined" class="navbar-brand" style="cursor: pointer;" @click="logout">
-                <img :src="logoutImg" alt="" width="20" height="20"/> <small>logout</small>
-            </a>
-          </form>
-        </div>
-      </div>
-    </nav>
-  </header> -->
+  <div>
     <WrHeader :user="user" :logout="logout" :isLogin="isLogin"/>
-  
-  <router-view/>
+    
+    <router-view/>
 
-  <footer class="container mt-5">
-    <p class="float-end"><a href="#" >WEATHEROBE</a></p>
-    <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-  </footer>
-</div>  
+    <footer class="container mt-5">
+      <p class="float-end"><a href="#" >WEATHEROBE</a></p>
+      <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+  </div>  
 </template>
 
 <script>
@@ -71,15 +18,7 @@ export default {
   components: {
     WrHeader
   },
-  data() {
-    return {
-      loginImg: require('./assets/login.png'),
-      logoutImg: require('./assets/logout.png'),
-      searchImg: require('./assets/search2.png'),
-      mypageImg: require('./assets/mypage.png'),
-      writeImg: require('./assets/write.png'),
-    }
-  },
+  
   computed: {
     user() {
       return this.$store.state.user;
@@ -88,6 +27,7 @@ export default {
       return this.$store.state.user.email !== undefined;
     }
   },
+
   methods: {
     logout() {
       if(this.$store.state.user.sso === 0) {

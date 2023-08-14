@@ -3,26 +3,26 @@
     <div class="background-bar"></div>
 
     <div class="text-center">
-          <h1 class="pt-3">
-            <router-link to="/" class="weatherobe-logo">
-              WEATHEROBE
-            </router-link>
-          </h1>
+      <h1 class="pt-3">
+        <router-link to="/" class="weatherobe-logo">
+          WEATHEROBE
+        </router-link>
+      </h1>
     </div>
 
     <div class="header-container">
       <div >
-          <ul class="header-text">
-            <li class="nav-item">
-              <router-link class="nav-link" id="daily-look" aria-current="page" to="/">Home</router-link>
-            </li>
-            <li class="nav-item">
-              <router-link class="nav-link" id="daily-look" aria-current="page" to="/dailylook">DailyLook</router-link>
-            </li>
-            <li v-if="isLogin" class="nav-item">
-              <router-link class="nav-link" id="my-wardrobe" aria-current="page" to="/wardrobe">MyWardrobe</router-link>
-            </li>
-          </ul>
+        <ul class="header-text">
+          <li class="nav-item">
+            <router-link class="nav-link" to="/">Home</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/dailylook">DailyLook</router-link>
+          </li>
+          <li v-if="isLogin" class="nav-item">
+            <router-link class="nav-link" to="/wardrobe">MyWardrobe</router-link>
+          </li>
+        </ul>
       </div>
 
       <div class="header-icon">
@@ -36,10 +36,10 @@
           <img class="header-img" :src="searchImg">
         </router-link>
         <router-link v-if="!isLogin"  to="/login">
-            <img class="header-img" :src="loginImg"> <small>login</small>
+          <img class="header-img" :src="loginImg"> <small>login</small>
         </router-link>
         <a v-if="isLogin" @click="logout">
-            <img class="header-img" :src="logoutImg"/><small>logout</small>
+          <img class="header-img" :src="logoutImg"/><small>logout</small>
         </a>
       </div>
     </div>
@@ -117,7 +117,6 @@ ul{
   color:#000;
   text-decoration:none;
 }
-
 
 nav {
   padding: 30px;
