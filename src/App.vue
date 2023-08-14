@@ -1,6 +1,6 @@
 <template>
 <div>
-  <header class="weatherobe-header">
+  <!-- <header class="weatherobe-header">
     <div class="background-bar"></div>
 
     <div class="container text-center">
@@ -52,7 +52,8 @@
         </div>
       </div>
     </nav>
-  </header>
+  </header> -->
+    <WrHeader :user="user" :logout="logout" :isLogin="isLogin"/>
   
   <router-view/>
 
@@ -64,8 +65,12 @@
 </template>
 
 <script>
-export default {
+  import WrHeader from '@/components/WrHeader.vue'
 
+export default {
+  components: {
+    WrHeader
+  },
   data() {
     return {
       loginImg: require('./assets/login.png'),
@@ -78,6 +83,9 @@ export default {
   computed: {
     user() {
       return this.$store.state.user;
+    },
+    isLogin() {
+      return this.$store.state.user.email !== undefined;
     }
   },
   methods: {
@@ -107,6 +115,7 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+
 
 .background-bar{
   background-color: #000;
