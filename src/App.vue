@@ -4,19 +4,18 @@
     
     <router-view/>
 
-    <footer class="container mt-5">
-      <p class="float-end"><a href="#" >WEATHEROBE</a></p>
-      <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
-    </footer>
+    <WrFooter />
   </div>  
 </template>
 
 <script>
   import WrHeader from '@/components/WrHeader.vue'
+  import WrFooter from '@/components/WrFooter.vue'
 
 export default {
   components: {
-    WrHeader
+    WrHeader,
+    WrFooter
   },
   
   computed: {
@@ -24,7 +23,7 @@ export default {
       return this.$store.state.user;
     },
     isLogin() {
-      return this.$store.state.user.email !== undefined;
+      return this.$store.state.user.email;
     }
   },
 

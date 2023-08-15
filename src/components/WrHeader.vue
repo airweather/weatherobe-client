@@ -3,7 +3,7 @@
     <div class="background-bar"></div>
 
     <div class="text-center">
-      <h1 class="pt-3">
+      <h1 class="mt-3">
         <router-link to="/" class="weatherobe-logo">
           WEATHEROBE
         </router-link>
@@ -11,7 +11,7 @@
     </div>
 
     <div class="header-container">
-      <div >
+      <div>
         <ul class="header-text">
           <li class="nav-item">
             <router-link class="nav-link" to="/">Home</router-link>
@@ -27,17 +27,21 @@
 
       <div class="header-icon">
         <router-link v-if="isLogin" to="/write">
-          <img :src="writeImg" alt="" width="24" height="24">
+          <img :src="writeImg" width="24" height="24">
         </router-link>
+        
         <router-link v-if="(isLogin && user.sso ===1)" to="/mypage">
-          <img :src="mypageImg" alt="" width="24" height="24">
+          <img :src="mypageImg" width="24" height="24">
         </router-link>
+
         <router-link  to="/search">
           <img class="header-img" :src="searchImg">
         </router-link>
+
         <router-link v-if="!isLogin"  to="/login">
           <img class="header-img" :src="loginImg"> <small>login</small>
         </router-link>
+
         <a v-if="isLogin" @click="logout">
           <img class="header-img" :src="logoutImg"/><small>logout</small>
         </a>
@@ -136,5 +140,6 @@ p a {
   width: 20px;
   height: 20px;
   cursor: pointer;
+  object-fit: cover;
 }
 </style>
