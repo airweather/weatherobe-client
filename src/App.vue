@@ -1,11 +1,14 @@
 <template>
   <div>
-    <WrHeader :user="user" :logout="logout" :isLogin="isLogin"/>
-    
-    <router-view/>
-
-    <WrFooter />
-  </div>  
+    <div class="background-bar"></div>
+    <div class="app-container">
+      <div class="weatherobe-container">
+        <WrHeader :user="user" :logout="logout" :isLogin="isLogin"/>
+        <router-view/>
+        <WrFooter />
+      </div>
+    </div>  
+  </div>
 </template>
 
 <script>
@@ -55,23 +58,24 @@ export default {
   color: #2c3e50;
 }
 
-
 .background-bar{
   background-color: #000;
   height:8px;
   width: 100%;
 }
 
-.weatherobe-header{
-  border-bottom: 1px solid #ddd;
+.app-container{
+  display: flex;
+  justify-content: center;
 }
 
-.weatherobe-logo,
-.weatherobe-logo:hover{
-  color:#000;
-  text-decoration:none;
+.weatherobe-container{
+  width: 1280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
-
 
 nav {
   padding: 30px;

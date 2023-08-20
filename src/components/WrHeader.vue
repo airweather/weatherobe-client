@@ -1,7 +1,5 @@
 <template>
   <header class="weatherobe-header">
-    <div class="background-bar"></div>
-
     <div class="text-center">
       <h1 class="mt-3">
         <router-link to="/" class="weatherobe-logo">
@@ -83,13 +81,23 @@ ul{
   list-style: none;
 }
 
+.weatherobe-header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+}
+
 .header-container{
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 10px;
   padding: 0 30px;
-  width: 1300px;
+  width: 100%;
+
 }
 
 .header-text{
@@ -102,19 +110,7 @@ ul{
   gap: 10px;
 }
 
-.background-bar{
-  background-color: #000;
-  height:8px;
-  width: 100%;
-}
 
-.weatherobe-header{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid #ddd;
-}
 
 .weatherobe-logo,
 .weatherobe-logo:hover{

@@ -1,6 +1,5 @@
 <template>
   <footer class="footer-container">
-    <button @click="check">ddd</button>
     <span v-if="location">{{ location }}에서 접속 중</span>
     <span>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></span>
     <span><a href="#" >WEATHEROBE</a></span>
@@ -8,7 +7,8 @@
 </template>
 
 <script>
-  import axios from 'axios';
+import axios from 'axios';
+
 export default {
   mounted() {
     this.getLocation();
@@ -19,14 +19,13 @@ export default {
       location: "",
     }
   },
-  
+
   methods: {
-    check() {
-      console.log(this.location);
-    },
+   
     getLocation() {
       if (navigator.geolocation) { // GPS를 지원하면
-        navigator.geolocation.getCurrentPosition(function(pos) {
+
+        navigator.geolocation.getCurrentPosition((pos) => {
           
           const lat = pos.coords.latitude;
           const lon = pos.coords.longitude;
@@ -34,19 +33,24 @@ export default {
           const KAKAO_REST_API_KEY = "b5aa8055a9b11c87fd0d8a07035ce3c3";
 
           if (lat && lon) {
-            axios.get(
+             axios.get(
               `https://dapi.kakao.com/v2/local/geo/coord2regioncode.json?x=${lon}&y=${lat}`,
               { headers: { Authorization: `KakaoAK ${KAKAO_REST_API_KEY}` } }
             )
-            .then((result) => {
+            .then((res) => {
               //법정동 기준으로 동단위의 값을 가져온다
-              const location = result.data.documents[1].region_2depth_name + " " + result.data.documents[1].region_3depth_name;
-              
-              this.location = location;
+              if(res.data.documents.length > 0) {
+
+                const loc = res.data.documents[0].region_2depth_name + " " + res.data.documents[0].region_3depth_name;
+
+                console.log(loc)
+                
+                this.location = loc;
+              }
             })
           }
-        }, function(error) {
-          console.error(error);
+        }, (err) => {
+          console.error(err);
         }, {
           enableHighAccuracy: false, maximumAge: 0, timeout: Infinity
         });
@@ -62,5 +66,7 @@ export default {
 .footer-container{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 1300px;
 }
 </style>
